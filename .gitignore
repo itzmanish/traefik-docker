@@ -3,4 +3,4 @@ config/
 letsencrypt/
 !letsencrypt/.gitkeep
 docker-compose.override.yml
-
+*.env

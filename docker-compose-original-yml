@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  traefik:
+    image: traefik:2.4
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./config/traefik.toml:/etc/traefik/traefik.toml
+      - ./config/dynamic:/etc/traefik/dynamic
+      - ./letsencrypt/acme.json:/etc/trafik/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file: ./traefik.env
